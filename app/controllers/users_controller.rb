@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     end 
 
     def create
-        @user = user.new(user_params)
+        @user = User.new(user_params)
         if @user.save
        redirect_to user_path(@user)
         else
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id])
         if !@user
             redirect_to '/'
+        end 
     end 
 
     private
