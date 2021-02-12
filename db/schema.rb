@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_054043) do
+ActiveRecord::Schema.define(version: 2021_02_12_125936) do
 
   create_table "albums", force: :cascade do |t|
     t.binary "artwork"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 2021_02_06_054043) do
     t.integer "length"
     t.integer "user_id", null: false
     t.integer "album_id", null: false
+    t.integer "musician_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["musician_id"], name: "index_songs_on_musician_id"
     t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
@@ -50,5 +52,6 @@ ActiveRecord::Schema.define(version: 2021_02_06_054043) do
 
   add_foreign_key "albums", "musicians"
   add_foreign_key "songs", "albums"
+  add_foreign_key "songs", "musicians"
   add_foreign_key "songs", "users"
 end

@@ -1,18 +1,31 @@
 <h1>make a song here</h1>
 <%= form_for(:song) do |f| %>
-
+<div>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
+</div>
+<div>
   <%= f.label :length %>
   <%= f.text_field :length %>
+</div>
 
   <p>Select an Artist/Band</p>
-  <%= f.collection_select %>
-
+  <div>
+  <%= f.collection_select(:musician_id, Musician.all, :id, :name) %>
+  </div>
 
   <p>Or create an Artist/Band</p>
-
+  <div>
+  <%= f.fields_for :musician do |m|%>
+  <%= m.label :name %>
+  <%= m.text_field :name %>
+  </div>
+  <div>
+  <%= m.label :instrument %>
+  <%= m.text_field :instrument %>
+  </div>
+  <% end %>
+  </div>
   <%= f.submit%>
 <% end %>
 
