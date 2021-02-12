@@ -1,0 +1,22 @@
+<h1>make a song here</h1>
+<%= form_for(:song) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :length %>
+  <%= f.text_field :length %>
+
+  <p>Select an Artist/Band</p>
+  <%= f.collection_select %>
+
+
+  <p>Or create an Artist/Band</p>
+
+  <%= f.submit%>
+<% end %>
+
+ t.string "title"
+    t.integer "length"
+    t.integer "user_id", null: false
+    t.integer "album_id", null: false
