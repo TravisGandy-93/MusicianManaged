@@ -1,5 +1,5 @@
 <h1>make a song here</h1>
-<%= form_for(:song) do |f| %>
+<%= form_with model: @song do |f| %>
 <div>
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -16,20 +16,16 @@
 
   <p>Or create an Artist/Band</p>
   <div>
-  <%= f.fields_for :musician do |m|%>
-  <%= m.label :name %>
-  <%= m.text_field :name %>
+  <%= f.fields_for :musician do |musician_attributes|%>
+  <%= musician_attributes.label :name %>
+  <%= musician_attributes.text_field :name %>
   </div>
   <div>
-  <%= m.label :instrument %>
-  <%= m.text_field :instrument %>
+  <%= musician_attributes.label :instrument %>
+  <%= musician_attributes.text_field :instrument %>
   </div>
   <% end %>
-  </div>
+  <br>
+  <p>Is this a single?(if yes  </p>
   <%= f.submit%>
 <% end %>
-
- t.string "title"
-    t.integer "length"
-    t.integer "user_id", null: false
-    t.integer "album_id", null: false
