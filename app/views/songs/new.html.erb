@@ -6,7 +6,7 @@
 </div>
 <div>
   <%= f.label :length %>
-  <%= f.text_field :length %>
+  <%= f.text_field :length %> 
 </div>
 
   <p>Select an Artist/Band</p>
@@ -25,7 +25,20 @@
   <%= musician_attributes.text_field :instrument %>
   </div>
   <% end %>
+  
+  <p>Create an album or make it a single?</p>
+
+  <%= f.collection_check_boxes(:album_id, Album.all, :id, :name) %>
+  <div>
+  <%= f.fields_for :album do |album_attributes|%>
+  <%= album_attributes.label :name %>
+  <%= album_attributes.text_field :name %>
+  </div>
+  <div>
+  <%= album_attributes.label :release_date %>
+  <%= album_attributes.text_field :release_date %>
+  </div>
+  <% end %>
   <br>
-  <p>Is this a single?(if yes  </p>
   <%= f.submit%>
 <% end %>
