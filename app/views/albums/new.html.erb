@@ -1,0 +1,11 @@
+<h1>Now Lets Name our album or skip if this is a single</h1>
+<%= form_with model: @album, url: { action: "create" } do |album_attributes| %>
+  <%= album_attributes.label :name %>
+  <%= album_attributes.text_field :name %>
+  </div>
+  <div>
+  <%= album_attributes.label :release_date %>
+  <%= album_attributes.text_field :release_date %>
+  </div>
+  <%=album_attributes.submit%>
+<% end %>

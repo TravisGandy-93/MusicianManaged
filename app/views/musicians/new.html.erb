@@ -1,0 +1,19 @@
+<h1>make a band or musician here</h1>
+<h2>Let"s start with who's performing</h2>
+ <%= form_with model: @musician do |f| %>
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :instrument %>
+  <%= f.text_field :instrument %> 
+</div>
+<div>
+  <%= f.label :members %>
+  <%= f.number_field :members %> 
+</div>
+
+  <br>
+  <%= f.submit%>
+<% end %>
