@@ -1,15 +1,23 @@
 class AlbumsController < ApplicationController
    
     def new
-        @musician_id = params[:musician_id]
-
+        @album = Album.new
     end
 
     def create
-        album = Album.new(album_params)
-        album.musician_id = params[:musician_id]
-        album.save!
-        redirect_to "/albums/#{album.id}/songs/new"
+
+        @album = Album.new(album_params)
+
+        
+      if @album.save!
+        redirect_to "/albums/#{@album.id}/songs/new"
+      else
+        new_album_path
+      end 
+    end 
+
+    def edit
+
     end 
 
     private

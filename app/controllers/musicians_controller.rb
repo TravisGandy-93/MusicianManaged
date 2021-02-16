@@ -8,7 +8,7 @@ class MusiciansController < ApplicationController
 
     def create
      musician = Musician.new(musician_params)
-     @musician_id = musician.id
+   
         if musician.save!
             redirect_to musicians_path
        else
