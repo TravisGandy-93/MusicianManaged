@@ -18,6 +18,8 @@ class SongsController < ApplicationController
     end
 
     def index
+        @songs = Song.all
+        @album = Album.find_by_id(params[:album_id])
     end 
 
     private
