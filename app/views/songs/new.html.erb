@@ -1,11 +1,16 @@
-<%=form_with model: @song do |s|%>
+<h2>What are you going to call your masterpiece? </h2>
+
+<%=form_for([@album, @song]) do |s|%>
 <div>
   <%= s.label :title %>
   <%= s.text_field :title %> 
 </div>
+<br>
 <div>
   <%= s.label :length %>
   <%= s.number_field :length, in: 1...20 %> 
 </div>
+ <%= s.hidden_field :album_id %>
+<br>
 <%=s.submit%>
 <% end %>

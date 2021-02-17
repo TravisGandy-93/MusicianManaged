@@ -2,6 +2,7 @@ class AlbumsController < ApplicationController
    
     def new
         @album = Album.new
+        
     end
 
     def create
@@ -10,7 +11,7 @@ class AlbumsController < ApplicationController
 
         
       if @album.save!
-        redirect_to "/albums/#{@album.id}/songs/new"
+        redirect_to new_album_song_path(@album, @song)
       else
         new_album_path
       end 

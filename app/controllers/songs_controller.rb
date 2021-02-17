@@ -1,18 +1,24 @@
 class SongsController < ApplicationController
     def new 
-        @song = Song.new
+        @album = Album.find_by_id(params[:album_id])
+        @song = @album.songs.build
+    
     end 
 
     def create
-        song = Song.new(song_params)
-        
-    
-        if song.save!
-            redirect_to songs_path
+        @song = Song.new(song_params)
+        @song.user_id = session[:user_id]
+        @album = Album.find_by_id(params[:album_id])
+        @song.musician_id = @album.musician_id
+        if @song.save!
+            redirect_to album_songs_path
        else
             redirect_to new_song_path
        end 
     end
+
+    def index
+    end 
 
     private
 
@@ -22,4 +28,4 @@ class SongsController < ApplicationController
 
 end
 
-#, :album_id, album_attributes: [:name, :release_date], song_attributes: [:name, :instrument]
+#, :title, :length, :user_id, :album_id, :musician_id

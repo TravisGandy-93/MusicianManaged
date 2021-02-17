@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :users
   resources :musicians
-  resources :albums
-  resources :songs
+  resources :albums do
+  resources :songs, only: [:new, :create, :index]
+  end 
 
   get '/' => 'sessions#welcome'
   get '/auth/:provider/callback', to: 'sessions#create'
@@ -12,9 +13,6 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-
-  get "/albums/:id/songs/new" => 'songs#new'
-  post "/albums/:id/songs/new" => 'songs#create'
 
   get '/logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
