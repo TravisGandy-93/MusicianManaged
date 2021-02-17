@@ -1,0 +1,11 @@
+<%=form_with model: @song do |s|%>
+<div>
+  <%= s.label :title %>
+  <%= s.text_field :title %> 
+</div>
+<div>
+  <%= s.label :length %>
+  <%= s.number_field :length, in: 1...20 %> 
+</div>
+<%=s.submit%>
+<% end %>

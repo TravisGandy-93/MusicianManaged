@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
 
   get "/albums/:id/songs/new" => 'songs#new'
- 
+  post "/albums/:id/songs/new" => 'songs#create'
+  
   get '/logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
