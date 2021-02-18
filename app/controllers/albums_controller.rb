@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-   
+  before_action :redirect_if_not_logged_in
     def new
         @album = Album.new
         
@@ -15,11 +15,27 @@ class AlbumsController < ApplicationController
       else
         new_album_path
       end 
+    end
+    
+    def index
+        @albums = Album.all
     end 
 
     def edit
-
     end 
+
+    def show
+      @album = Album.find_by_id(params[:id])
+      @songs = Song.find_by_id(params[:album_id])
+    end
+
+    def destroy
+      @album = Album.find_by_id(params[:id])
+      @album.destroy
+      flash[:notice] = "album deleted."
+      redirect_to albums_path
+    end
+  
 
     private
 

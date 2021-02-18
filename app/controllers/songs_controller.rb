@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+    before_action :redirect_if_not_logged_in
     def new 
         if @album = Album.find_by_id(params[:album_id])
         @song = @album.songs.build

@@ -10,7 +10,9 @@
   </head>
   <div>
   <%= link_to "Log Out", logout_path, method: :delete%>
-  <%= link_to "Add a Project!", new_musician_path%>
+  <%= link_to "Start a Project!", new_musician_path%>
+  <%= link_to "View Musicians", musicians_path%>
+  <%= link_to "View Albums", albums_path%>
   </div>
   <body>
     <%= yield %>

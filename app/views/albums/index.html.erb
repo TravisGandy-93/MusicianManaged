@@ -1,0 +1,10 @@
+<h1> Here are all the albums  </h2>
+<% @albums.sort.each do |a|%>
+<div>
+<h3><%=a.name.upcase %></h3>
+        <%= link_to 'Add a Song to this Album', new_album_song_path(a) %> |
+          <%= link_to 'Edit', edit_album_path(a) %> |
+          <%= button_to 'Delete', a, method: :delete, data: { confirm: 'You sure?' } %>
+
+</div>
+<% end %>

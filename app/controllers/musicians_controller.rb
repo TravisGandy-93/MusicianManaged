@@ -1,5 +1,5 @@
 class MusiciansController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
     def new
         
         @musician = Musician.new

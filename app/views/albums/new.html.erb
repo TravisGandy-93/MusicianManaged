@@ -1,5 +1,7 @@
-<h1>Now Lets Name our album. Type "single" if this is the only track</h1>
+<h1>Lets name your album. Type "single" if this is the only track</h1>
+
 <%= render partial: 'layouts/errors', locals:{ object: @album } %>
+
 <%= form_with model: @album, url: { action: "create" } do |album_attributes| %>
   <%= album_attributes.label :name %>
   <%= album_attributes.text_field :name %>

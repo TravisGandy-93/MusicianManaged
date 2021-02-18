@@ -1,8 +1,8 @@
 <h1>Here are all of your musician's</h1>
-<h2>Select the act that you wish to add a song to:</h2>
+<h2><%= link_to " Click Here ", new_album_path %> to start an album:</h2>
 
 <% @musicians.each do |m|%>
 <div>
-<%= link_to " #{m.name} ", new_album_path %>
+<h2><%= m.name %></h2>
 </div>
 <% end %>
