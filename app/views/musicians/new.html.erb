@@ -1,5 +1,8 @@
 <h1>make a band or musician here</h1>
 <h2>Let"s start with who's performing</h2>
+
+<%= render partial: "layouts/errors", locals: {error: @musician} %>
+
  <%= form_with model: @musician do |f| %>
 <div>
   <%= f.label :name %>

@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
         @album = Album.new(album_params)
 
         
-      if @album.save!
+      if @album.save
         redirect_to new_album_song_path(@album, @song)
       else
         new_album_path
