@@ -1,7 +1,10 @@
 class SongsController < ApplicationController
     def new 
-        @album = Album.find_by_id(params[:album_id])
+        if @album = Album.find_by_id(params[:album_id])
         @song = @album.songs.build
+        else
+            @song = Song.new
+        end
     
     end 
 
@@ -18,9 +21,16 @@ class SongsController < ApplicationController
     end
 
     def index
-        @songs = Song.all
-        @album = Album.find_by_id(params[:album_id])
+        if @album = Album.find_by_id(params[:album_id])
+            @songs = @album.songs
+          else
+            @songs = Song.all
+          end
     end 
+
+    def show
+        @song = Song.find_by_id(params[:id])
+    end
 
     private
 

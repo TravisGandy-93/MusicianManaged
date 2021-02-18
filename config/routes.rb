@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resources :musicians
   resources :albums do
-  resources :songs, only: [:new, :create, :index]
+  resources :songs
   end 
 
   get '/' => 'sessions#welcome'

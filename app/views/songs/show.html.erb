@@ -1,1 +1,4 @@
-<h1>this your song show page</h1>
+<h1><%= @song.title.upcase %> by: <%= @song.musician.name %></h1>
+<h2><%= @song.length %> minute play time</h2>
+<h2>This song is from the "<%= @song.album.name.upcase %>" collection</h2>
+<p></p>
