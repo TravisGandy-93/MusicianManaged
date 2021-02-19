@@ -1,1 +1,15 @@
-<h1>lets see here</h1>
+<h1>lets edit here</h1>
+<%= form_for(@album) do |album_attributes| %>
+  <%= album_attributes.label :name %>
+  <%= album_attributes.text_field :name %>
+  </div>
+  <div>
+  <%= album_attributes.label :release_date %>
+  <%= album_attributes.text_field :release_date %>
+  </div>
+    <div>
+  <p>Select the Musician who made this album</p>
+  <%= album_attributes.collection_select(:musician_id, Musician.all, :id, :name)  %>
+  </div>
+  <%=album_attributes.submit%>
+<% end %>
