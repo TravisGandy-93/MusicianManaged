@@ -1,0 +1,20 @@
+<h1>What's changed?</h1>
+
+<%= form_with model: @musician do |f| %>
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :instrument %>
+  <%= f.text_field :instrument %> 
+</div>
+<div>
+  <%= f.label :members %>
+  <%= f.number_field :members, in: 1...11 %> 
+</div>
+
+
+  <br>
+  <%= f.submit%>
+<% end %>

@@ -3,6 +3,7 @@
 
 <% @musicians.each do |m|%>
 <div>
-<h2><%= m.name %></h2>
+<h2><%=link_to "#{m.name}", m %></h2>
+ <p><%=link_to "Edit", edit_musician_path(m) %> | <%=button_to "Delete", m, :method => :delete %></p>
 </div>
 <% end %>
