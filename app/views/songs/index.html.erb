@@ -1,6 +1,7 @@
-<h1><%= @album.name.upcase %> - <%=@album.musician.name%></h1>
+<h1>Here are all your songs</h1>
 <% @songs.each do |s|%>
 <div>
-<%=link_to " #{s.title} ", album_song_path(@album, s) %>
+<%=link_to " #{s.title} ", album_song_path(s.album, s) %>
+|
 </div>
 <% end %>

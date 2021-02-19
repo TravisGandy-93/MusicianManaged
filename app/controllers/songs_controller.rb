@@ -21,12 +21,8 @@ class SongsController < ApplicationController
        end 
     end
 
-    def index
-        if @album = Album.find_by_id(params[:album_id])
-            @songs = @album.songs
-          else
-            @songs = Song.all
-          end
+    def index 
+        @songs = Song.all 
     end 
 
     def show

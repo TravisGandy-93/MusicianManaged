@@ -1,15 +1,12 @@
 class AlbumsController < ApplicationController
   before_action :redirect_if_not_logged_in
+  before_action :set_album, only: [:show, :edit, :update]
     def new
-        @album = Album.new
-        
+        @album = Album.new  
     end
 
     def create
-
         @album = Album.new(album_params)
-
-        
       if @album.save
         redirect_to new_album_song_path(@album, @song)
       else
@@ -25,14 +22,16 @@ class AlbumsController < ApplicationController
     end 
 
     def show
-      @album = Album.find_by_id(params[:id])
-      @songs = Song.find_by_id(params[:album_id])
+
     end
+
+    def update
+
+    end 
 
     def destroy
       @album = Album.find_by_id(params[:id])
       @album.destroy
-      flash[:notice] = "album deleted."
       redirect_to albums_path
     end
   
@@ -42,6 +41,11 @@ class AlbumsController < ApplicationController
     def album_params
         params.require(:album).permit(:name, :release_date, :musician_id, :artwork)
     end 
+
+    def set_album
+      @album = Album.find_by(params[:id])
+      redirect_to albums_path if !@album
+   end
 end
 
 

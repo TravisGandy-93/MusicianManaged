@@ -10,7 +10,7 @@ class Song < ApplicationRecord
   def not_a_duplicate
     song = Song.find_by(title: title, album_id: album_id)
     if !!song && song != self
-      errors.add(:title, 'has already been added to that brand')
+      errors.add(:title, 'has already been added to that album')
     end
   end
 end
