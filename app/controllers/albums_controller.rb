@@ -43,7 +43,7 @@ class AlbumsController < ApplicationController
     end 
 
     def set_album
-      @album = Album.find_by(params[:id])
+      @album = Album.find_by_id(params[:id])
       redirect_to albums_path if !@album
    end
 end

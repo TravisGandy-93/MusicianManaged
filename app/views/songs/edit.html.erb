@@ -1,0 +1,15 @@
+<h1> Let's edit your song here </h1>
+<%=form_for([@song.album, @song]) do |s|%>
+<div>
+  <%= s.label :title %>
+  <%= s.text_field :title %> 
+</div>
+<br>
+<div>
+  <%= s.label :length %>
+  <%= s.number_field :length, in: 1...20 %> 
+</div>
+ <%= s.hidden_field :album_id %>
+<br>
+<%=s.submit%>
+<% end %>
