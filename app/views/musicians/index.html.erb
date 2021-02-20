@@ -1,6 +1,7 @@
-<h1>Here are all of your musician's</h1>
-<h2><%= link_to " Click Here ", new_album_path %> to start an album:</h2>
-
+<h1>Here are all of your Artists</h1>
+<h2>Click their name to view their work so far</h2>
+<h3><%= link_to " Click Here ", new_album_path %> to start an album:</h3>
+<br>
 <% @musicians.each do |m|%>
 <div>
 <h2><%=link_to "#{m.name}", m %></h2>

@@ -10,22 +10,13 @@
   </head>
   <div>
   <%= link_to "Log Out", logout_path, method: :delete%>
+  <%= link_to "HOME", '/'%>
   <%= link_to "Start a Project!", new_musician_path%>
   <%= link_to "View Musicians", musicians_path%>
   <%= link_to "View Albums", albums_path%>
   <%= link_to "View Songs", songs_path%>
   </div>
   <body>
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '252845129579868',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v10.0'
-    });
-  };
-</script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <%= yield %>
   </body>
