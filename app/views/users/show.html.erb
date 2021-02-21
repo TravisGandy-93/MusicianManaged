@@ -3,6 +3,6 @@
 <h2>Your additions:</h2>
 <% @user.songs.each do |s|%>
 <div>
-<%=link_to " #{s.title} ", album_song_path(s.album, s) %>
+<h2><%=link_to " #{s.title} ", album_song_path(s.album, s) %> by <%=link_to " #{s.musician.name} ", musician_path(s.musician) %></h2>
 </div>
 <% end %>

@@ -1,7 +1,7 @@
 <h1>Here are all your songs</h1>
 <% @songs.each do |s|%>
 <div>
-<%=link_to " #{s.title} ", album_song_path(s.album, s) %>
+<h2><%=link_to " #{s.title} ", album_song_path(s.album, s) %></h2>
 <%=button_to "delete song", album_song_path(s.album_id, s.id), :method => :delete %>
 </div>
 <% end %>
