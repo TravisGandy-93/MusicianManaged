@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
     end
     
     def index
-        @albums = Album.all
+        @albums = Album.recent
     end 
 
     def edit

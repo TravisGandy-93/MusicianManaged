@@ -1,5 +1,5 @@
 <h1> Here are all the albums  </h2>
-<% @albums.recent.each do |a|%>
+<% @albums.each do |a|%>
 <div>
 <h3><%=link_to "#{a.name.upcase}", album_path(a) %></h3>
         <%= link_to 'Add a Song to this Album', new_album_song_path(a) %> |
