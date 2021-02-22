@@ -10,7 +10,7 @@ class MusiciansController < ApplicationController
         if musician.save
             redirect_to musicians_path
        else
-            redirect_to new_musician_path
+            render :new
        end 
     end
 

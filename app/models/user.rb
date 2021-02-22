@@ -12,3 +12,9 @@ class User < ApplicationRecord
     end
 
 end
+#live coding
+#create genre
+#genre belongs to song
+#album has many genres
+#screenshot form where song form adds genre
+#fix fields with errors

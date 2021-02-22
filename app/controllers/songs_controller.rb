@@ -15,10 +15,10 @@ class SongsController < ApplicationController
         @song.user_id = session[:user_id]
         @album = Album.find_by_id(params[:album_id])
         @song.musician_id = @album.musician_id
-        if @song.save!
+        if @song.save
             redirect_to album_songs_path
        else
-            redirect_to new_song_path
+            redirect_to new_album_song_path(@album)
        end 
     end
 

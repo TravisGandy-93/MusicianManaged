@@ -1,0 +1,11 @@
+<% if object.errors.any? %>
+  <div class = "fields_with_errors">
+    <h2><%= pluralize(object.errors.count, "error") %> prohibited this from being created:</h2>
+ 
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><em><%= msg %><em></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

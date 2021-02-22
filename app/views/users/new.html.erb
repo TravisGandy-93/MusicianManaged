@@ -1,5 +1,9 @@
 <h1>Sign Up!</h1>
 
+<div class = "fields_with_errors">
+<%= render partial: 'layouts/errors', locals: {object: @user}%>
+</div>
+
 <%= form_for @user do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
