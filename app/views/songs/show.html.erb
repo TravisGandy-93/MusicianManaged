@@ -1,4 +1,4 @@
 <h1><%= @song.title.upcase %> by: <%= @song.musician.name %></h1>
 <h2><%= @song.length %> minute play time</h2>
-<h2>This song is from the "<%=link_to "#{@song.album.name.upcase}", @song.album  %>" collection</h2>
+<h2>This song is a "<%= @song.genre.name %>" song from the "<%=link_to "#{@song.album.name.upcase}", @song.album  %>" collection</h2>
 <p>click <%= link_to 'here', edit_album_song_path(@song.album_id, @song) %> to edit the song title or play time</p>

@@ -4,7 +4,7 @@ class SongsController < ApplicationController
     def new 
         if @album = Album.find_by_id(params[:album_id])
         @song = @album.songs.build
-        @genre = Genre.new(song_id: @song.id, album_id: @album.id)
+       @song.build_genre
         else
             @song = Song.new
         end
@@ -16,6 +16,7 @@ class SongsController < ApplicationController
         @song.user_id = session[:user_id]
         @album = Album.find_by_id(params[:album_id])
         @song.musician_id = @album.musician_id
+        #byebug
         if @song.save
             redirect_to album_songs_path
        else
@@ -55,7 +56,7 @@ class SongsController < ApplicationController
     private
 
     def song_params
-        params.require(:song).permit(:title, :length, :user_id, :album_id, :musician_id)
+        params.require(:song).permit(:title, :length, :user_id, :album_id, :musician_id, genre_attributes: [:name, :album_id])
     end
 
     def set_song
