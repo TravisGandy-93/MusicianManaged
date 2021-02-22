@@ -2,6 +2,7 @@ class Song < ApplicationRecord
   belongs_to :user 
   belongs_to :musician
   belongs_to :album
+  has_one :genre
   accepts_nested_attributes_for :album
   validates :title, presence: true
   validate :not_a_duplicate
