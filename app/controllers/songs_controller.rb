@@ -4,6 +4,7 @@ class SongsController < ApplicationController
     def new 
         if @album = Album.find_by_id(params[:album_id])
         @song = @album.songs.build
+        @genre = Genre.new(song_id: @song.id, album_id: @album.id)
         else
             @song = Song.new
         end

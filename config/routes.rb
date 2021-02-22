@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :albums do
   resources :songs
   end 
-
+  resources :genres
+  
   get '/' => 'sessions#welcome'
   get '/auth/:provider/callback', to: 'sessions#create'
 

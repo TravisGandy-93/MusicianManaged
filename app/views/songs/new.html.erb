@@ -10,7 +10,13 @@
   <%= s.label :length %>
   <%= s.number_field :length, in: 1...20 %> 
 </div>
+<div>
+<%= s.fields_for @genre do |genre|%>
+Genre  : <%= genre.text_field :name %>
+<%end%>
+</div>
  <%= s.hidden_field :album_id %>
 <br>
+
 <%=s.submit%>
 <% end %>
