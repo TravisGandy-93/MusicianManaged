@@ -4,7 +4,7 @@
 <%= render partial: 'layouts/errors', locals: {object: @album}%>
 </div>
 
-<%= form_with model: @album, url: { action: "create" } do |album_attributes| %>
+<%= form_with model: @album do |album_attributes| %>
   <%= album_attributes.label :name %>
   <%= album_attributes.text_field :name %>
   </div>

@@ -1,31 +1,31 @@
 class AlbumsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action :set_album, only: [:show, :edit, :update]
-    def new
-        @album = Album.new  
-    end
+  def new
+    @album = Album.new  
+  end
 
-    def create
-        @album = Album.new(album_params)
-      if @album.save
-        redirect_to new_album_song_path(@album, @song)
-      else
-        new_album_path
-      end 
-    end
+  def create
+   @album = Album.new(album_params)
+    if @album.save
+      redirect_to new_album_song_path(@album)
+    else
+      :new
+    end 
+  end
     
-    def index
-        @albums = Album.recent
-    end 
+  def index
+    @albums = Album.recent
+  end 
 
-    def edit
-    end 
+  def edit
+  end 
 
-    def show
+  def show
 
-    end
+  end
 
-    def update
+  def update
 
     if @album.update(album_params)
       redirect_to @album
@@ -33,13 +33,13 @@ class AlbumsController < ApplicationController
       render :edit
     end
 
-    end 
+  end 
 
-    def destroy
+  def destroy
       @album = Album.find_by_id(params[:id])
       @album.destroy
       redirect_to albums_path  
-    end
+  end
   
 
     private
